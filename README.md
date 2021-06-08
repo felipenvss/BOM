@@ -5,7 +5,7 @@ Este arquivo constrói todas as lâminas para compor uma sela através de retas.
 É recomendável imprimir cada peça separada. Para isso os laços for(x=[-50:10:50]) e for(y=[-50:10:50]) devem indicar qual a peça deverá ser impressa. Cada eixo é composto por 11 peças e que no laço variam de [-50,+50] com passo de 10, que é a separação entre as peças. Para imprimir a peça 40 no eixo x deve-se colocar o laço em for(x=[40:10:40]), ou seja, os limites inferior e superior do laço devem ser iguais e devem pertencer ao conjunto {-50, -40, -30, -20, -10, 0, 10 , 20, 30, 40, 50}
 
 ## Exemplo: Para imprimir a peça 40 o seguinte cógio deverá ser utilizado:
-
+```
 largura = 5;
 profundidade = 5;
 ponto_focal = 90;
@@ -13,7 +13,6 @@ numero_laminas = 50;
 altura = 90;
 sulco = 25;    // Altura dos sulcos
 
-/*
 module lamina_sela_y_45(y, largura, profundidade) {
     for (x = [-(numero_laminas+largura):0.1:numero_laminas+largura]){
         translate([x, y, 0])
@@ -24,7 +23,7 @@ module lamina_sela_y_45(y, largura, profundidade) {
 
 // As lâminas variam de -[50, +50] com passo de 10.
 // Para imprimir uma lâmina colocar o loop em y=[30:10:30]
-for(y=[-50:10:-50]) {
+for(y=[-40:10:40]) {
     translate([0,0,0]) rotate([0,0,0]) {
         difference() {
             lamina_sela_y_45(y, largura, profundidade);
@@ -35,7 +34,7 @@ for(y=[-50:10:-50]) {
         }    
     }
 }
-*/
+
 
 module lamina_sela_x_45(x, largura, profundidade) {
     for (y = [-(numero_laminas+largura):0.1:numero_laminas+largura]){
@@ -58,7 +57,7 @@ for(x=[40:10:40]) {
         }    
     }
 }
-
+```
 ## Equipe de desenvolvimento
 - Márcio Nascimento
 - Dionne Monteiro
