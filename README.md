@@ -79,9 +79,11 @@ for(i=[0:360]){
 }
 ```
 ## Objeto Garrafa de Klein
-O arquivo ...
+O arquivo GarrafadeKlein.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todas os sólidos que compõem as partes da garrafa, a Garrafa de Klein foi construída com cuidado e precição usando divesos comandos presentes no software. Para facilitar o entendimento da garrafa o código compartilhado mostra a visualização da mesma cortada ao meio, porém, temos a opção de visualizar ela completamente.
+### Para imprimir o objeto Garrafa de Klein o seguinte cógio deverá ser utilizado:
 ```
 /// Garrafa de Klein
+
 module GdK(){
     difference(){
         translate([372,320,0])
@@ -210,11 +212,16 @@ module GdK(){
         cylinder(100, 20, 20);
     }
 }
+
+/// Garrafa de Klein cortada ao meio
+
 difference(){
     GdK();
     translate([-150, -200, 0])
     cube([600, 450, 250]);
 }
+
+/// Substituir o comando acima "difference() {...}" por "GdK();" para visualizar a Garrafa completa
 ```
 ### Equipe de desenvolvimento
 - Márcio Nascimento
