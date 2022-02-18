@@ -59,7 +59,7 @@ for(x=[40:10:40]) {
 }
 ```
 ## Objeto Fita de Moebius
-O arquivo fita.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todas os sólidos que compõem a peça, a Fita se dá forma através de diversos cubos que vão se multiplicando e rotacionando. Tais rotações são de 0° a 180° em seu próprio eixo e de 0° a 360° tendo como centro a origem. Como a impressão 3D com filamento precisa ser sólida, tendo uma resistência apropriada e que proporcione sustentação, criamos a fita para ser feita através de cubos com a espessura mínima recomendada (fin = 1).
+O arquivo fita.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos que compõem a peça, a Fita se dá forma através de diversos cubos que vão se multiplicando e rotacionando. Tais rotações são de 0° a 180° em seu próprio eixo e de 0° a 360° tendo como centro a origem. Como a impressão 3D com filamento precisa ser sólida, tendo uma resistência apropriada e que proporcione sustentação, criamos a fita para ser feita através de cubos com a espessura mínima recomendada (fin = 1).
 ### Para imprimir o objeto Fita de Moebius o seguinte cógio deverá ser utilizado:
 ```
 fin = 1; /// finura da fita
@@ -79,7 +79,7 @@ for(i=[0:360]){
 }
 ```
 ## Objeto Garrafa de Klein
-O arquivo GarrafadeKlein.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todas os sólidos que compõem as partes da garrafa, a Garrafa de Klein foi construída com cuidado e precição usando divesos comandos presentes no software. Para facilitar o entendimento da garrafa o código compartilhado mostra a visualização da mesma cortada ao meio, porém, temos a opção de visualizar ela completamente.
+O arquivo GarrafadeKlein.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos que compõem as partes da garrafa, a Garrafa de Klein foi construída com cuidado e precição usando divesos comandos presentes no software. Para facilitar o entendimento da garrafa o código compartilhado mostra a visualização da mesma cortada ao meio, porém, temos a opção de visualizar ela completamente.
 ### Para imprimir o objeto Garrafa de Klein o seguinte cógio deverá ser utilizado:
 ```
 /// Garrafa de Klein
@@ -223,17 +223,20 @@ difference(){
 
 /// Substituir o comando acima "difference() {...}" por "GdK();" para visualizar a Garrafa completa
 ```
-## Objeto Volumes
-O arquivo...
-### Para imprimir
+## Objeto Volumes (...)
+O arquivo Volumes.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos interessantes para entender a dedução do volume da esfera, os objetos foram gerados com comandos básicos presentes no software. Podemos observar as relações entre os sólidos editando apenas a altura (TC) do cilindro principal dentro do código compartilhado.
+### Para imprimir o objeto Volumes o seguinte cógio deverá ser utilizado:
 ```
 /// Volumes
 
 TC = 100; /// Tamanho do Cilindro (altura)
 
+/// Cilindro
 module C() {
     cylinder(TC, TC/2, TC/2);
 }
+
+/// C - E
 module c1() {
     difference(){
         cylinder(TC*0.45, TC/2, TC/2);
@@ -241,10 +244,14 @@ module c1() {
         sphere(TC/2);
     }
 }
+
+/// Esfera
 module E() {
     translate([0, 0, TC/2])
     sphere(TC/2);
 }
+
+/// Anticlepsidra
 module AC() {
     difference(){
         cylinder(TC, TC/2, TC/2);
@@ -253,6 +260,8 @@ module AC() {
         cylinder(h=TC/2, r1=0, r2=TC/2);
     }
 }
+
+/// Dois cones
 module DC() {
     cylinder(h=TC/2, r1=TC/2, r2=0);
     translate([0, 0, TC/2])
