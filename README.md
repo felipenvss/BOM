@@ -223,8 +223,8 @@ difference(){
 
 /// Substituir o comando acima "difference() {...}" por "GdK();" para visualizar a Garrafa completa
 ```
-## Objeto Volumes (...)
-O arquivo Volumes.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos interessantes para entender a dedução do volume da esfera, os objetos foram gerados com comandos básicos presentes no software. Podemos observar as relações entre os sólidos editando apenas a altura (TC) do cilindro principal dentro do código compartilhado.
+## Objeto Volumes (Princípio de Cavalieri)
+O arquivo Volumes.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos interessantes para entender a relação de volume e área entre um cilindro equilátero, uma clépsidra, uma anticlépsidra e uma esfera de mesmo raio, e também a dedução do volume de uma esfera através do Princípio de Cavalieri, os objetos foram gerados com comandos básicos presentes no software. Podemos observar as relações entre os sólidos editando apenas a altura (TC) do cilindro equilátero principal dentro do código compartilhado.
 ### Para imprimir o objeto Volumes o seguinte cógio deverá ser utilizado:
 ```
 /// Volumes
@@ -251,7 +251,7 @@ module E() {
     sphere(TC/2);
 }
 
-/// Anticlepsidra
+/// Anticlépsidra
 module AC() {
     difference(){
         cylinder(TC, TC/2, TC/2);
@@ -261,7 +261,7 @@ module AC() {
     }
 }
 
-/// Dois cones
+/// Clépsidra (dois cones)
 module DC() {
     cylinder(h=TC/2, r1=TC/2, r2=0);
     translate([0, 0, TC/2])
