@@ -223,6 +223,67 @@ difference(){
 
 /// Substituir o comando acima "difference() {...}" por "GdK();" para visualizar a Garrafa completa
 ```
+## Objeto Volumes
+O arquivo...
+### Para imprimir
+```
+/// Volumes
+
+TC = 100; /// Tamanho do Cilindro (altura)
+
+module C() {
+    cylinder(TC, TC/2, TC/2);
+}
+module c1() {
+    difference(){
+        cylinder(TC*0.45, TC/2, TC/2);
+        translate([0, 0, TC/2])
+        sphere(TC/2);
+    }
+}
+module E() {
+    translate([0, 0, TC/2])
+    sphere(TC/2);
+}
+module AC() {
+    difference(){
+        cylinder(TC, TC/2, TC/2);
+        cylinder(h=TC/2, r1=TC/2, r2=0);
+        translate([0, 0, TC/2])
+        cylinder(h=TC/2, r1=0, r2=TC/2);
+    }
+}
+module DC() {
+    cylinder(h=TC/2, r1=TC/2, r2=0);
+    translate([0, 0, TC/2])
+    cylinder(h=TC/2, r1=0, r2=TC/2);
+}
+
+/// Representação de volumes dos sólidos
+
+C();
+
+translate([TC*1.5, 0, 0])
+c1();
+
+translate([TC*3, 0, 0])
+c1();
+
+translate([TC*4.5, 0, 0])
+E();
+
+translate([0, TC*1.5, 0])
+C();
+
+translate([TC*3, TC*1.5, 0])
+AC();
+
+translate([TC*1.5, TC*1.5, 0])
+DC();
+
+translate([TC*4.5, TC*1.5, 0])
+E();
+```
 ### Equipe de desenvolvimento
 - Márcio Nascimento
 - Dionne Monteiro
