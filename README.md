@@ -293,6 +293,65 @@ DC();
 translate([TC*4.5, TC*1.5, 0])
 E();
 ```
+## Objeto Numicon
+O objeto...
+### Para imprimir o objeto Numicon o seguinte cógio deverá ser utilizado:
+```
+///
+module Pr() {
+    difference() {
+        cube([40, 100, 5]);
+        for(y=[10:20:100]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:100]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+    }
+}
+///
+module Df() {
+    difference() {
+        cube([40, 100, 5]);
+        translate([20, 0, 0])
+        cube([20, 20, 5]);
+    }
+}
+///
+difference() {
+    Pr();
+    Df();
+}
+///
+translate([50, 0, 0]) {
+    difference() {
+        Pr();
+        translate([40, 120, 0])
+        rotate([0, 0, 180])
+        Df();
+    }
+}
+///
+translate([100, 0, 0]) {
+    difference() {
+        Pr();
+        translate([0, 20, 0])
+        rotate([0, 0, 0])
+        Df();
+    }
+}
+///
+translate([150, 0, 0]) {
+    difference() {
+        Pr();
+        translate([40, 140, 0])
+        rotate([0, 0, 180])
+        Df();
+    }
+}
+```
 ### Equipe de desenvolvimento
 - Márcio Nascimento
 - Dionne Monteiro
