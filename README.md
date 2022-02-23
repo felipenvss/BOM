@@ -294,10 +294,10 @@ translate([TC*4.5, TC*1.5, 0])
 E();
 ```
 ## Objeto Numicon
-O objeto...
+O arquivo Numicon.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos que representam os números presentes no Numicon. Programamos de modo que fique fácil de identificar cada peça e qual número ela representa (1, 2, 3...). O objeto Numicon tem uma contrução mais simples, usamos apenas cubos, cilindros e comandos básicos.
 ### Para imprimir o objeto Numicon o seguinte cógio deverá ser utilizado:
 ```
-///
+/// Numicon
 module Pr() {
     difference() {
         cube([40, 100, 5]);
@@ -311,7 +311,6 @@ module Pr() {
         }
     }
 }
-///
 module Df() {
     difference() {
         cube([40, 100, 5]);
@@ -319,12 +318,12 @@ module Df() {
         cube([20, 20, 5]);
     }
 }
-///
+/// Número 1
 difference() {
     Pr();
     Df();
 }
-///
+/// Número 2
 translate([50, 0, 0]) {
     difference() {
         Pr();
@@ -333,7 +332,7 @@ translate([50, 0, 0]) {
         Df();
     }
 }
-///
+/// Número 3
 translate([100, 0, 0]) {
     difference() {
         Pr();
@@ -342,11 +341,65 @@ translate([100, 0, 0]) {
         Df();
     }
 }
-///
+/// Número 4
 translate([150, 0, 0]) {
     difference() {
         Pr();
         translate([40, 140, 0])
+        rotate([0, 0, 180])
+        Df();
+    }
+}
+/// Número 5
+translate([200, 0, 0]) {
+    difference() {
+        Pr();
+        translate([0, 40, 0])
+        rotate([0, 0, 0])
+        Df();
+    }
+}
+/// Número 6
+translate([250, 0, 0]) {
+    difference() {
+        Pr();
+        translate([40, 160, 0])
+        rotate([0, 0, 180])
+        Df();
+    }
+}
+/// Número 7
+translate([300, 0, 0]) {
+    difference() {
+        Pr();
+        translate([0, 60, 0])
+        rotate([0, 0, 0])
+        Df();
+    }
+}
+/// Número 8
+translate([350, 0, 0]) {
+    difference() {
+        Pr();
+        translate([40, 180, 0])
+        rotate([0, 0, 180])
+        Df();
+    }
+}
+/// Número 9
+translate([400, 0, 0]) {
+    difference() {
+        Pr();
+        translate([0, 80, 0])
+        rotate([0, 0, 0])
+        Df();
+    }
+}
+/// Número 10
+translate([450, 0, 0]) {
+    difference() {
+        Pr();
+        translate([40, 200, 0])
         rotate([0, 0, 180])
         Df();
     }
