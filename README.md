@@ -294,22 +294,138 @@ translate([TC*4.5, TC*1.5, 0])
 E();
 ```
 ## Objeto Numicon
-O arquivo Numicon.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos que representam os números presentes no Numicon. Programamos de modo que fique fácil de identificar cada peça e qual número ela representa (1, 2, 3...). O objeto Numicon tem uma contrução mais simples, usamos apenas cubos, cilindros e comandos básicos.
+O arquivo Numicon.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos que representam os números presentes no Numicon. Programamos de modo que fique fácil de identificar cada peça e qual número ela representa (1, 2, 3...). O objeto Numicon tem uma contrução mais simples, usamos apenas cubos de cantos arredondados, cilindros e comandos básicos.
 ### Para imprimir o objeto Numicon o seguinte cógio deverá ser utilizado:
 ```
 /// Numicon
-module Pr() {
-    difference() {
-        cube([40, 100, 5]);
-        for(y=[10:20:100]) {
-            translate([10, y, 0])
-            cylinder(h = 5, r = 7.5);
+
+module Pr1() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([15, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([15, 15, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 15, 0])
+        cylinder(h = 5, d = 10);
         }
-        for(y=[10:20:100]) {
-            translate([30, y, 0])
-            cylinder(h = 5, r = 7.5);
+}
+module Pr2() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 15, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 15, 0])
+        cylinder(h = 5, d = 10);
         }
-    }
+}
+module Pr3() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 35, 0])
+        cylinder(h = 5, d = 10);
+        translate([25, 35, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 15, 0])
+        cylinder(h = 5, d = 10);
+        }
+}
+module Pr4() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 35, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 35, 0])
+        cylinder(h = 5, d = 10);
+        }
+}
+module Pr5() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 55, 0])
+        cylinder(h = 5, d = 10);
+        translate([25, 55, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 35, 0])
+        cylinder(h = 5, d = 10);
+        }
+}
+module Pr6() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 55, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 55, 0])
+        cylinder(h = 5, d = 10);
+        }
+}
+module Pr7() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 75, 0])
+        cylinder(h = 5, d = 10);
+        translate([25, 75, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 55, 0])
+        cylinder(h = 5, d = 10);
+        }
+}
+module Pr8() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 75, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 75, 0])
+        cylinder(h = 5, d = 10);
+        }
+}
+module Pr9() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 95, 0])
+        cylinder(h = 5, d = 10);
+        translate([25, 95, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 75, 0])
+        cylinder(h = 5, d = 10);
+        }
+}
+module Pr10() {
+    hull() {
+        translate([5, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 5, 0])
+        cylinder(h = 5, d = 10);
+        translate([35, 95, 0])
+        cylinder(h = 5, d = 10);
+        translate([5, 95, 0])
+        cylinder(h = 5, d = 10);
+        }
 }
 module Df() {
     difference() {
@@ -319,23 +435,41 @@ module Df() {
     }
 }
 /// Número 1
-difference() {
-    Pr();
-    Df();
+translate([20, 0, 0]) {
+    difference() {
+        Pr1();
+        for(y=[10:20:10]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+    }
 }
 /// Número 2
 translate([50, 0, 0]) {
     difference() {
-        Pr();
-        translate([40, 120, 0])
-        rotate([0, 0, 180])
-        Df();
+        Pr2();
+        for(y=[10:20:10]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:10]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
     }
 }
 /// Número 3
 translate([100, 0, 0]) {
     difference() {
-        Pr();
+        Pr3();
+        for(y=[10:20:10]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:30]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
         translate([0, 20, 0])
         rotate([0, 0, 0])
         Df();
@@ -344,16 +478,29 @@ translate([100, 0, 0]) {
 /// Número 4
 translate([150, 0, 0]) {
     difference() {
-        Pr();
-        translate([40, 140, 0])
-        rotate([0, 0, 180])
-        Df();
+        Pr4();
+        for(y=[10:20:30]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:30]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
     }
 }
 /// Número 5
 translate([200, 0, 0]) {
     difference() {
-        Pr();
+        Pr5();
+        for(y=[10:20:30]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:50]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
         translate([0, 40, 0])
         rotate([0, 0, 0])
         Df();
@@ -362,16 +509,29 @@ translate([200, 0, 0]) {
 /// Número 6
 translate([250, 0, 0]) {
     difference() {
-        Pr();
-        translate([40, 160, 0])
-        rotate([0, 0, 180])
-        Df();
+        Pr6();
+        for(y=[10:20:50]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:50]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
     }
 }
 /// Número 7
 translate([300, 0, 0]) {
     difference() {
-        Pr();
+        Pr7();
+        for(y=[10:20:50]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:70]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
         translate([0, 60, 0])
         rotate([0, 0, 0])
         Df();
@@ -380,16 +540,29 @@ translate([300, 0, 0]) {
 /// Número 8
 translate([350, 0, 0]) {
     difference() {
-        Pr();
-        translate([40, 180, 0])
-        rotate([0, 0, 180])
-        Df();
+        Pr8();
+        for(y=[10:20:70]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:70]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
     }
 }
 /// Número 9
 translate([400, 0, 0]) {
     difference() {
-        Pr();
+        Pr9();
+        for(y=[10:20:70]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:90]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
         translate([0, 80, 0])
         rotate([0, 0, 0])
         Df();
@@ -398,10 +571,15 @@ translate([400, 0, 0]) {
 /// Número 10
 translate([450, 0, 0]) {
     difference() {
-        Pr();
-        translate([40, 200, 0])
-        rotate([0, 0, 180])
-        Df();
+        Pr10();
+        for(y=[10:20:90]) {
+            translate([10, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
+        for(y=[10:20:90]) {
+            translate([30, y, 0])
+            cylinder(h = 5, r = 7.5);
+        }
     }
 }
 ```
