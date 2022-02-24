@@ -59,15 +59,15 @@ for(x=[40:10:40]) {
 }
 ```
 ## Objeto Fita de Moebius
-O arquivo fita.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos que compõem a peça, a Fita se dá forma através de diversos cubos que vão se multiplicando e rotacionando. Tais rotações são de 0° a 180° em seu próprio eixo e de 0° a 360° tendo como centro a origem. Como a impressão 3D com filamento precisa ser sólida, tendo uma resistência apropriada e que proporcione sustentação, criamos a fita para ser feita através de cubos com a espessura mínima recomendada (fin = 1).
+O arquivo FitadeMoebius.scad foi desenvolvido no programa OpenSCAD versão 2021.01. Este arquivo constrói todos os sólidos que compõem a peça, a Fita se dá forma através de diversos cubos que vão se multiplicando e rotacionando. Tais rotações são de 0° a 180° em seu próprio eixo e de 0° a 360° tendo como centro a origem. Como a impressão 3D com filamento precisa ser sólida, tendo uma resistência apropriada e que proporcione sustentação, criamos a fita para ser feita através de cubos com a espessura mínima recomendada (fin = 1).
 ### Para imprimir o objeto Fita de Moebius o seguinte cógio deverá ser utilizado:
 ```
-fin = 1; /// finura da fita
-larg = 20; /// largura da fita
+fin = 1; /// Finura da fita
+larg = 20; /// Largura da fita
 ec = 1;
-r = 15; /// raio de abertura da fita
+r = 15; /// Raio de abertura da fita
 
-/// fita de moebius
+/// Fita de moebius
 
 for(i=[0:360]){
     hull(){
